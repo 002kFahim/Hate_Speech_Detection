@@ -1,3 +1,9 @@
+import Nav from "@/components/Nav";
+
 export default function Home() {
-  return <div className={"bg-red-500"}>test</div>;
+  return (
+    <div>
+      <Nav />
+    </div>
+  );
 }
