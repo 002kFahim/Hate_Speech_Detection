@@ -1,18 +1,24 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Nav() {
   const inactiveLink = "flex gap-1 p-1";
-  const activeLink =
-    "flex gap-1 p-1 bg-purple-300 text-purple-700 rounded-l-lg";
+  const activeLink = "flex gap-1 p-1 bg-white text-purple-700 rounded-l-lg";
+  const pathname = usePathname();
+
   return (
     <aside className="text-white p-4 pr-0">
-      <Link href={"/"} className="flex items-center gap-1 mb-4 mr-4">
+      <a className="flex items-center gap-1 mb-4 mr-4">
         <Image src="/hate.png" alt="Logo" width={50} height={50} />
         <span className="">Hate Speech Detector</span>
-      </Link>
+      </a>
       <nav className="flex flex-col gap-2">
-        <Link href={"/"} className={activeLink}>
+        <Link
+          className={`link ${pathname === "/" ? activeLink : inactiveLink}`}
+          href="/"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -29,7 +35,12 @@ export default function Nav() {
           </svg>
           Overview
         </Link>
-        <Link href={"/createtext"} className={inactiveLink}>
+        <Link
+          className={`link ${
+            pathname === "/createtext" ? activeLink : inactiveLink
+          }`}
+          href="/createtext"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
