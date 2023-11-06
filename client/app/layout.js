@@ -1,4 +1,5 @@
 import "./globals.css";
+import Nav from "./components/Nav";
 
 export const metadata = {
   title: "Hate Speech Detector",
@@ -8,7 +9,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div className="bg-purple-700 min-h-screen flex">
+          <Nav />
+          <div className="bg-purple-300 flex-grow mt-2 mr-2 mb-2 rounded-lg p-4">
+            {children}
+          </div>
+        </div>
+      </body>
     </html>
   );
 }
